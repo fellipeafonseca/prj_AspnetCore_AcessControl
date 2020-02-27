@@ -1,0 +1,81 @@
+﻿@model IEnumerable<VsacWeb.Models.Log>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="no-print">Logs</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+
+
+<table class="table"
+       id="table"
+       data-toggle="table"
+       data-search="true"
+       data-search-align="left"
+       data-show-toggle="true"
+       data-filter-control="true"
+     data-show-fullscreen="true"
+       data-pagination="true">
+    <thead>
+        <tr>
+            <th data-filter-control="select" data-sortable="true" data-field="Tabela">
+                @Html.DisplayNameFor(model => model.Tabela)
+            </th>
+            <th data-filter-control="input" data-sortable="true" data-field="Data">
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th data-filter-control="select" data-sortable="true" data-field="Operacao">
+                @Html.DisplayNameFor(model => model.Operacao)
+            </th>
+            <th data-filter-control="input" data-sortable="true" data-field="ValorAntigo">
+                @Html.DisplayNameFor(model => model.ValorAntigo)
+            </th>
+            <th data-filter-control="input" data-sortable="true" data-field="ValorNovo">
+                @Html.DisplayNameFor(model => model.ValorNovo)
+            </th>
+            <th data-filter-control="select" data-sortable="true" data-field="Usuario">
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+
+
+            <th class="no-print">Option</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tabela)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Operacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorAntigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorNovo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.Nome)
+            </td>
+            <td class="no-print">
+                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a>*@ 
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<button type="button" class="no-print" style="float: right;" onclick="javascript:window.print()">
+    <span class="glyphicon glyphicon-print"></span>
+</button>

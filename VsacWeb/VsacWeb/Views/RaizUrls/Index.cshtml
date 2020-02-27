@@ -1,0 +1,53 @@
+﻿@model IEnumerable<VsacWeb.Models.RaizUrl>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="no-print">UrlCores</h1>
+
+@*<p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+
+
+<table class="table"
+       id="table"
+       data-toggle="table"
+       data-search="true"
+       data-search-align="left"
+       data-show-toggle="true"
+       data-pagination="true"
+       data-filter-control="true"
+       data-show-fullscreen="true">
+
+    <thead>
+        <tr>
+            <th data-sortable="true">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th class="no-print">Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td class="no-print">
+                    @*     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |*@
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info">Details</a>
+                    @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<button type="button" class="no-print" style="float: right;" onclick="javascript:window.print()">
+    <span class="glyphicon glyphicon-print"></span>
+</button>
+

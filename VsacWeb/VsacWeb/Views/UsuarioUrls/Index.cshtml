@@ -1,0 +1,65 @@
+﻿@model IEnumerable<VsacWeb.Models.UsuarioUrls>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <h1 class="no-print">UsuarioUrls</h1>
+
+<p class="no-print">
+    <a asp-action="Create" class="btn btn-outline-dark">Create New</a>
+</p>
+
+<table class="table" id="table"
+       data-toggle="table"
+       data-search="true"
+       data-search-align="left"
+       data-show-toggle="true"
+       data-pagination="true"
+       data-filter-control="true"
+     data-show-fullscreen="true">
+
+
+    <thead>
+        <tr>
+            <th data-field="user" data-sortable="true" data-filter-control="select">
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+
+            <th data-field="url" data-sortable="true" data-filter-control="input">
+                @Html.DisplayNameFor(model => model.Url)
+            </th>
+
+            <th class="no-print">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Url.Caminho)
+                </td>
+                <td class="no-print">
+                    @*<a asp-action="Edit" asp-route-id="@item.Id"  class="btn btn-outline-secondary">Edit</a>*@ 
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info">Details</a> 
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<button type="button" class="no-print" style="float: right;" onclick="javascript:window.print()">
+    <span class="glyphicon glyphicon-print"></span>
+</button>
+
+
+@*<a href="#" class="btn btn-success btn-lg">
+    <span class="glyphicon glyphicon-print"></span> Print
+</a>*@
