@@ -16,9 +16,9 @@ namespace VsacWeb.Models.Mapping
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Nome).HasMaxLength(200).IsRequired();
-            builder.Property(x => x.Image).HasMaxLength(200).IsRequired(false);
-            builder.Property(x => x.Porte).IsRequired(false);
-            builder.Property(x => x.Sexo).IsRequired(false);
+            builder.Property(x => x.Image).HasMaxLength(200);
+            builder.Property(x => x.Porte);
+            builder.Property(x => x.Sexo);
 
             builder.HasMany(x => x.Pessoas);   
         }
